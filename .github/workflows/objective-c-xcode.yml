@@ -15,4 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        run: xcodebuild -project DocScanner.xcodeproj -scheme DocScanner -archivePath DocScanner.xcarchive archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        run: |
+          pod install
+          xcodebuild -project DocScanner.xcodeproj -scheme DocScanner -archivePath DocScanner.xcarchive archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
